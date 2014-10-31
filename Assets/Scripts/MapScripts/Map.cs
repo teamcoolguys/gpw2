@@ -14,7 +14,7 @@ public class Map : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		currentPlayer = 0;
+
 	}
 	
 	// Update is called once per frame

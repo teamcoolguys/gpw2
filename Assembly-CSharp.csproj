@@ -139,6 +139,7 @@
      <Compile Include="Assets\Scripts\MapScripts\Map.cs" />
      <Compile Include="Assets\Scripts\MapScripts\Space.cs" />
      <Compile Include="Assets\Scripts\MapScripts\TerrainGrid.cs" />
+     <Compile Include="Assets\Scripts\MapScripts\TestMap.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Deck.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Hand.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Player.cs" />
