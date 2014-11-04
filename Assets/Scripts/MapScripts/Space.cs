@@ -1,16 +1,27 @@
-﻿using UnityEngine;
+﻿//Created by Dylan Fraser
+//November 3, 2014
+//----------------------//
+//Changed by Jack Ng
+//November 4, 2014
+//-added a switch function to set up enum type
+//-commented part is for tracking player and AI(not working)
+
+using UnityEngine;
 using System.Collections;
 
 public class Space : MonoBehaviour 
 {
 	//publics
 	private int mID;
+	public int mPlayerSpot;
 	public OccupyType mSetSpace;
+
+	private Player pSpot;
 
 	//privates
 	private bool mFull = false;
 	private bool mShop = false;
-	private GameObject mOccupant;
+	//private GameObject mOccupant;
 	private OccupyType mSpaceFilledWith;
 
 	public enum OccupyType
@@ -27,6 +38,12 @@ public class Space : MonoBehaviour
 	void Start()
 	{
 		mID = int.Parse (this.name);
+		//pSpot = GetComponent<Player> ();
+		//mPlayerSpot = pSpot.mCurrrentSpot;
+		//if (mID == mPlayerSpot)
+		//{
+		//	mSetSpace = (OccupyType)mPlayerSpot;
+		//}
 		mSpaceFilledWith = mSetSpace;
 
 		//use if to instantiate specific space types
@@ -34,7 +51,30 @@ public class Space : MonoBehaviour
 
 	void Update () 
 	{
+		//pSpot = GetComponent<Player> ();
+		//mPlayerSpot = pSpot.mCurrrentSpot;
+		//if (mID == mPlayerSpot)
+		//{
+		//	mSetSpace = (OccupyType)mPlayerSpot;
+		//}
+		//mSpaceFilledWith = mSetSpace;
 
+		//Switch bettween different exceptions
+		switch (mSpaceFilledWith) 
+		{
+		case OccupyType.Empty:
+			gameObject.renderer.material.color=Color.blue;
+			break;
+		case OccupyType.Player:
+			gameObject.renderer.material.color=Color.green;
+			break;
+		case OccupyType.Target:
+			gameObject.renderer.material.color=Color.red;
+			break;
+		case OccupyType.Wall:
+			gameObject.renderer.material.color=Color.black;
+			break;
+		}
 	}
 
 	public void SetOccupant(int Occupy)
