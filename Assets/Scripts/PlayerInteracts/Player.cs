@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿//Dylan Fraser
+//November 3, 2014
+
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour
@@ -6,6 +9,7 @@ public class Player : MonoBehaviour
 	//privates
 	private Hand Hand;
 	private Space currentSpace;
+	//private TestMap map;
 
 	//publics
 	public Deck mDeck;
@@ -18,14 +22,13 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		TestMap map = GetComponent<TestMap>();
-
+		//map = GetComponent<TestMap>("FullMap");
 
 	}
 
 	void Update()
 	{
-		if (Input.GetMouseButton (0)) 
+		if (Input.GetMouseButtonDown (0)) 
 		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -34,11 +37,28 @@ public class Player : MonoBehaviour
 
 			if(Physics.Raycast (ray, out hit))
 			{
+				//
 				Debug.Log (hit.collider.name);
-				int Picked = int.Parse (hit.collider.name);
+				//
+
+				Vector3 Picked = hit.collider.transform.position;
+				Move(Picked);
+
+				//if(gameObject.collider == Space)
+				{
+
+				}
+
+				// Move(Picked)
+				//
+				Debug.Log (Picked);
+				//
 			}
-			
 		}
+	}
+	void Move(Vector3 pos)
+	{
+		gameObject.transform.position = pos + new Vector3(0.0f, 2.0f, 0.0f);
 	}
 
 	public void SetCurrentSpace(Space nextSpace)
@@ -48,6 +68,6 @@ public class Player : MonoBehaviour
 
 	public Transform FindCurrentSpace()
 	{
-		return currentSpace.transform/*.position*/;	
+		return currentSpace.transform;
 	}
 }

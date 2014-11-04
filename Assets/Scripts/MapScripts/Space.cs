@@ -18,6 +18,7 @@ public class Space : MonoBehaviour
 		Empty,
 		Player,
 		Target,
+		Wall,
 		NPC,
 		Shop,
 		Ladder
