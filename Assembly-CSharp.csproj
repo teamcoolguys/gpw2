@@ -136,9 +136,8 @@
      <Compile Include="Assets\Scripts\BackEnd\GameManager.cs" />
      <Compile Include="Assets\Scripts\BackEnd\GameMenu.cs" />
      <Compile Include="Assets\Scripts\BackEnd\NetworkCommands.cs" />
-     <Compile Include="Assets\Scripts\MapScripts\Map.cs" />
+     <Compile Include="Assets\Scripts\Fraction,Character\baseCharacter.cs" />
      <Compile Include="Assets\Scripts\MapScripts\Space.cs" />
-     <Compile Include="Assets\Scripts\MapScripts\TerrainGrid.cs" />
      <Compile Include="Assets\Scripts\MapScripts\TestMap.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Deck.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Hand.cs" />
@@ -156,7 +155,7 @@
      <None Include="Assets\Art\places.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />
  <Reference Include="Photon3Unity3D">
- <HintPath>D:/DylanGPW/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>C:/Users/312287/Desktop/gpw2.git/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
