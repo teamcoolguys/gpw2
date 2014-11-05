@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
+		if (Input.GetKey ("escape")) 
+		{
+			Application.Quit ();
+		}
+
 		if (Input.GetMouseButtonDown (0)) 
 		{
 			RaycastHit hit;
