@@ -137,9 +137,7 @@
      <Compile Include="Assets\Scripts\BackEnd\GameMenu.cs" />
      <Compile Include="Assets\Scripts\BackEnd\NetworkCommands.cs" />
      <Compile Include="Assets\Scripts\Fraction,Character\baseCharacter.cs" />
-     <Compile Include="Assets\Scripts\MapScripts\Map.cs" />
      <Compile Include="Assets\Scripts\MapScripts\Space.cs" />
-     <Compile Include="Assets\Scripts\MapScripts\TerrainGrid.cs" />
      <Compile Include="Assets\Scripts\MapScripts\TestMap.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Deck.cs" />
      <Compile Include="Assets\Scripts\PlayerInteracts\Hand.cs" />

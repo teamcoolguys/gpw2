@@ -12,7 +12,7 @@ using System.Collections;
 public class Space : MonoBehaviour 
 {
 	//publics
-	private int mID;
+	public int mID;
 	public int mPlayerSpot;
 	public OccupyType mSetSpace;
 
@@ -39,7 +39,7 @@ public class Space : MonoBehaviour
 	{
 		mID = int.Parse (this.name);
 		//pSpot = GetComponent<Player> ();
-		//mPlayerSpot = pSpot.mCurrrentSpot;
+		//mPlayerSpot = pSpot.mCurrentSpot;
 		//if (mID == mPlayerSpot)
 		//{
 		//	mSetSpace = (OccupyType)mPlayerSpot;
@@ -52,12 +52,12 @@ public class Space : MonoBehaviour
 	void Update () 
 	{
 		//pSpot = GetComponent<Player> ();
-		//mPlayerSpot = pSpot.mCurrrentSpot;
+		//mPlayerSpot = pSpot.mCurrentSpot;
 		//if (mID == mPlayerSpot)
 		//{
 		//	mSetSpace = (OccupyType)mPlayerSpot;
 		//}
-		//mSpaceFilledWith = mSetSpace;
+		mSpaceFilledWith = mSetSpace;
 
 		//Switch bettween different exceptions
 		switch (mSpaceFilledWith) 

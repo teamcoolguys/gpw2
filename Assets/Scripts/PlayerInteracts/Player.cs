@@ -12,11 +12,13 @@ public class Player : MonoBehaviour
 	//privates
 	private Hand Hand;
 	private Space currentSpace;
+	private TestMap mCurrentGrid;
 	//private TestMap map;
 	 
-
-	public int mCurrrentSpot;
-
+			//Jack//
+	public int mCurrentSpot;
+	public baseCharacter mCharacter;
+	//Tracking current Spot//
 
 	//publics
 	public Deck mDeck;
@@ -46,18 +48,23 @@ public class Player : MonoBehaviour
 				//
 				Debug.Log (hit.collider.name);
 				//
-				mCurrrentSpot=int.Parse(hit.collider.name);
-				Vector3 Picked = hit.collider.transform.position;
-				Move(Picked);
+				mCurrentGrid=GetComponent<TestMap>();
 
-				//if(gameObject.collider == Space)
+				mCurrentSpot=int.Parse(hit.collider.name);
+				//currentSpace=mCurrentGrid.mGroundFloor[mCurrentSpot];
+				//if (currentSpace.mSetSpace==Space.OccupyType.Wall)
+				//{
+				//
+				//}
+				//else
 				{
-
-				}
+					Vector3 Picked = hit.collider.transform.position;
+					Move(Picked);
+				}				//if(gameObject.collider == Space)
 
 				// Move(Picked)
 				//
-				Debug.Log (Picked);
+				//Debug.Log (Picked);
 				//
 			}
 		}

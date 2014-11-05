@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapScripts\Space.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerInteracts\Player.cs">
     <Files>
-      <File FileName="Assets\Scripts\Fraction,Character\baseCharacter.cs" Line="9" Column="30" />
-      <File FileName="Assets\Scripts\PlayerInteracts\Player.cs" Line="61" Column="7" />
-      <File FileName="Assets\Scripts\MapScripts\Space.cs" Line="31" Column="10" />
-      <File FileName="Assets\Scripts\MapScripts\TerrainGrid.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerInteracts\Player.cs" Line="52" Column="5" />
+      <File FileName="Assets\Scripts\Fraction,Character\baseCharacter.cs" Line="13" Column="2" />
+      <File FileName="Assets\Scripts\MapScripts\Space.cs" Line="41" Column="37" />
+      <File FileName="Assets\Scripts\MapScripts\TestMap.cs" Line="17" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
