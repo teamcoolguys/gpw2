@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			if(_tileMap.MapInfo.GetTileAt(0,0))
+//			if(_tileMap.MapInfo.GetTileAt(0,0))
 			{
 
 			}
