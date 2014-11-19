@@ -25,13 +25,15 @@ public class DTileMap {
 	int[,] map_data;
 
 	
-	/*
-	 * 0 = unknown
-	 * 1 = floor
-	 * 2 = wall
-	 * 3 = stone
-	 */
-	
+	public enum TileType
+	{
+	 Unknown,
+	 Floor,
+	 Wall,
+	 Player,
+	 AI
+
+	};
 	public DTileMap(int sizex, int sizey)
 	{
 

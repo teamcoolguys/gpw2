@@ -10,13 +10,16 @@ public class TileMap : MonoBehaviour {
 	public int size_x = 100;
 	public int size_z = 50;
 	public float tileSize = 1.0f;
-	
+	public DTileMap MapInfo;
+
 	public Texture2D terrainTiles;
 	public int tileResolution;
 	
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		BuildMesh();
+		DTileMap MapInfo = new DTileMap(size_x, size_z);
 	}
 	
 	Color[][] ChopUpTiles() {
@@ -35,7 +38,6 @@ public class TileMap : MonoBehaviour {
 	}
 	
 	void BuildTexture() {
-		DTileMap map = new DTileMap(size_x, size_z);
 		
 		int texWidth = size_x * tileResolution;
 		int texHeight = size_z * tileResolution;
@@ -45,7 +47,7 @@ public class TileMap : MonoBehaviour {
 		
 		for(int y=0; y < size_z; y++) {
 			for(int x=0; x < size_x; x++) {
-				Color[] p = tiles[ map.GetTileAt(x,y) ];
+				Color[] p = tiles[ MapInfo.GetTileAt(x,y) ];
 				texture.SetPixels(x*tileResolution, y*tileResolution, tileResolution, tileResolution, p);
 			}
 		}
