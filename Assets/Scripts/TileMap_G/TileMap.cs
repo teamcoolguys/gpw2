@@ -18,8 +18,9 @@ public class TileMap : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		MapInfo = new DTileMap(size_x, size_z);
 		BuildMesh();
-		DTileMap MapInfo = new DTileMap(size_x, size_z);
+
 	}
 	
 	Color[][] ChopUpTiles() {
@@ -37,8 +38,9 @@ public class TileMap : MonoBehaviour {
 		return tiles;
 	}
 	
-	void BuildTexture() {
-		
+	void BuildTexture()
+	{
+
 		int texWidth = size_x * tileResolution;
 		int texHeight = size_z * tileResolution;
 		Texture2D texture = new Texture2D(texWidth, texHeight);
@@ -50,14 +52,6 @@ public class TileMap : MonoBehaviour {
 				Color[] p = tiles[ MapInfo.GetTileAt(x,y) ];
 				texture.SetPixels(x*tileResolution, y*tileResolution, tileResolution, tileResolution, p);
 			}
-		}
-		for(int y=0; y < size_z; y++)
-		{
-			for(int x=0; x < size_x; x++) 
-			{
-
-			}
-
 		}
 		
 		texture.filterMode = FilterMode.Point;
