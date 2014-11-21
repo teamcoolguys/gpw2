@@ -7,8 +7,12 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(TileMap))]
+[RequireComponent(typeof(TileMapMouse))]
 public class Player : MonoBehaviour
 {
+	TileMap _tileMap;
+	TileMapMouse mouse;
 	//privates
 	private Hand Hand;
 	private Space currentSpace;
@@ -36,6 +40,8 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
+		mouse = GetComponent<TileMapMouse> ();
+		_tileMap = GetComponent<TileMap>();
 		if (Input.GetKey ("escape")) 
 		{
 			Application.Quit ();
@@ -43,6 +49,10 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown (0)) 
 		{
+			if(_tileMap.MapInfo.GetTileAt(0,0))
+			{
+
+			}
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 
