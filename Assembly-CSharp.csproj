@@ -155,17 +155,17 @@
      <None Include="Assets\Photon Unity Networking\readme.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoBoxes\Resources\eurof_tt.txt" />
      <None Include="Assets\Plugins\Android\New Text Document.txt" />
-     <None Include="Assets\Authentication\Parse.framework\third_party_licenses.txt" />
-     <None Include="Assets\Authentication\ParseFacebookUtils.framework\third_party_licenses.txt" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\changelog.txt" />
      <None Include="Assets\Plugins\iOS\New Text Document.txt" />
+     <None Include="Assets\Authentication\Parse.framework\third_party_licenses.txt" />
      <None Include="Assets\Plugins\release_history.txt" />
+     <None Include="Assets\Authentication\ParseFacebookUtils.framework\third_party_licenses.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Art\places.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />
  <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/188621/Desktop/GPW/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>H:/New folder/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

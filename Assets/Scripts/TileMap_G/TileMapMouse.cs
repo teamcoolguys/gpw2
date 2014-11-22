@@ -4,11 +4,11 @@ using System.Collections;
 [RequireComponent(typeof(TileMap))]
 public class TileMapMouse : MonoBehaviour {
 
-	private int mMouseHitX;
-	private int mMouseHitY;
-	private Vector3 mMousePosition;
+	public int mMouseHitX;
+	public int mMouseHitY;
+	public Vector3 mMousePosition;
 
-	static TileMap _tileMap;
+	public TileMap _tileMap;
 	
 	Vector3 currentTileCoord;
 	//public GameObject mCube;
@@ -17,6 +17,9 @@ public class TileMapMouse : MonoBehaviour {
 	void Start() 
 	{
 		_tileMap = GetComponent<TileMap>();
+		mMousePosition = new Vector3(0.0f,0.0f,0.0f);
+		mMouseHitX = 0;
+		mMouseHitY = 0;
 	}
 
 	// Update is called once per frame
@@ -29,7 +32,7 @@ public class TileMapMouse : MonoBehaviour {
 			selectionCube.renderer.enabled = true;
 			int x = Mathf.FloorToInt( hitInfo.point.x / _tileMap.tileSize);
 			int z = Mathf.FloorToInt( hitInfo.point.z / _tileMap.tileSize);
-//			Debug.Log ("Tile: " + x + ", " + z);
+			//Debug.Log ("Tile: " + x + ", " + z);
 			
 			currentTileCoord.x = x;
 			currentTileCoord.z = z;
@@ -40,13 +43,10 @@ public class TileMapMouse : MonoBehaviour {
 		}
 		else
 		{
+			mMousePosition=currentTileCoord*_tileMap.tileSize+ new Vector3(0.5f,0.0f,0.5f);
+			selectionCube.transform.position = mMousePosition;
 			selectionCube.renderer.enabled = false;
 			// Hide selection cube?
-		}
-
-		if(Input.GetMouseButtonDown(0))
-		{
-			Debug.Log ("Click!");
 		}
 	}
 }

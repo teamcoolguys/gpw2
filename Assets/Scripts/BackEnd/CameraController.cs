@@ -8,11 +8,13 @@ public class CameraController : MonoBehaviour {
 	private bool isPanning;		// Is the camera being panned?
 	private bool Rotate;
 	private Quaternion eulerRot;
+	private float totalRotation = 0;
 	//publics
 	public float zoomSpeed = 20f;
 	public float minZoomFOV = 10f;
 	public float maxZoomFOV = 100f;
 	public float Rotation = 30; // degrees per second
+	public float RotationSpeed = 10;
 	public float panSpeed = 4.0f;
 	public float Speed = 5.0f;
 
@@ -38,6 +40,7 @@ public class CameraController : MonoBehaviour {
 	{
 		cameraFreeWalk = Camera.main;
 		eulerRot = Quaternion.Euler (0.0f, 0.0f, 0.0f);
+		Rotate = false;
 	}
 	
 	// Update is called once per frame
@@ -55,16 +58,20 @@ public class CameraController : MonoBehaviour {
 		{
 			eulerRot.y += Rotation;
 			Rotate = true;
+			Debug.Log("left");
 		}
 		if (Input.GetKeyDown("right"))
 		{
-			eulerRot.y -= Rotation;
+			eulerRot.y *= Rotation;
 			Rotate = true;
+			Debug.Log("right");
 			//transform.rotation = Quaternion.Slerp(transform.rotation,new Quaternion(transform.rotation.x, transform.rotation.y + goodDegs, transform.rotation.z, transform.rotation.w), Time.deltatime * Smooth);
 		}
 		if(Rotate)
 		{
-			transform.rotation  = Quaternion.Lerp(transform.rotation, eulerRot, Time.deltaTime * Speed);
+			eulerRot = Quaternion.AngleAxis(Rotation, Vector3.up);
+			transform.rotation = Quaternion.Slerp(transform.rotation, eulerRot, Time.deltaTime); 
+			Debug.Log (eulerRot);
 		}
 		if(Input.GetMouseButtonDown(1))
 		{
@@ -81,7 +88,5 @@ public class CameraController : MonoBehaviour {
 			Vector3 move = new Vector3(pos.x * panSpeed, 0, pos.y * panSpeed);
 			transform.Translate(move, UnityEngine.Space.Self);
 		}
-
-
 	}
 }
