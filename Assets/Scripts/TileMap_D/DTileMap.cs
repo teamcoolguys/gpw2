@@ -1,4 +1,8 @@
-﻿public class DTileMap {
+﻿using System;
+using System.Text.RegularExpressions;
+using System.IO;
+
+public class DTileMap {
 	
 	/*protected class DTile {
 		bool isWalkable = false;
@@ -20,31 +24,53 @@
 	
 	public int[] map_data;
 
+	public void readFile(string file)
+	{
+		FileInfo theSourceFile = null;
+		StreamReader reader = null;
+		
+		theSourceFile = new FileInfo (file);
+		reader = theSourceFile.OpenText ();
+		
+		string text = reader.ReadToEnd ();
+
+		string [] lines = Regex.Split (text, "/r/n");
+		
+		map_data = new int[(this.size_x * this.size_y)];
+		for (int i = 0; i < lines.Length; ++i) 
+		{
+			string[] stringsOfLine = Regex.Split (lines[i], " ");
+		
+			map_data[i] = int.Parse (stringsOfLine[i]);
+		}
+	}
+
 	
 	public enum TileType
-	{
-	 Unknown,	//0
+	{			//0
 	 Floor,		//1
 	 Wall,		//2
 	 Player,
-	 AI
-
+	 AI,
+	 Unknown
 	};
-	public DTileMap(int sizex, int sizey)
+	public DTileMap(int sizex, int sizey, string file)
 	{
 
 		this.size_x = sizex;
 		this.size_y = sizey;
+
+		//readFile (file);
 		
 		map_data = new int[sizex*sizey];
 		for(int y=0;y<sizey;y++)
 		{
 			for(int x=0;x<sizex;x++) 
 			{
-				map_data[(y*size_x)+x] = 1;
+				map_data[(y*size_x)+x] = 0;
 			}
 		}
-		map_data[9]=0;
+		map_data[9]=1;
 	}
 
 	public int GetTileAt(int x, int y)
@@ -56,4 +82,5 @@
 		map_data[(y*size_x)+x]=0;
 		return;
 	}
+
 }

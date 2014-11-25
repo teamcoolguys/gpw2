@@ -65,13 +65,23 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			Debug.Log ("Tile: " + mMouse.mMouseHitX + ", " + mMouse.mMouseHitY);
-			Debug.Log ("Tile: " + mMouseX + ", " + mMouseY);
-			Debug.Log (mTileMap.MapInfo.GetTileAt(mMouseX,mMouseY));
-			if(mTileMap.MapInfo.GetTileAt(mMouseX,mMouseY)==1)
+			//Debug.Log ("Tile: " + mMouse.mMouseHitX + ", " + mMouse.mMouseHitY);
+			//Debug.Log ("Tile: " + mMouseX + ", " + mMouseY);
+			//Debug.Log (mTileMap.MapInfo.GetTileAt(mMouseX,mMouseY));
+			int temp=mTileMap.MapInfo.GetTileAt(mMouseX,mMouseY);
+			Debug.Log (temp);
+			switch(temp)
 			{
-				Debug.Log ("Does it hit");
+			case 0:
+				Debug.Log ("Floor");
 				Move(mMouse.mMousePosition);
+				break;
+			case 1:
+				Debug.Log ("Wall");
+				break;
+			default:
+				Debug.Log ("Fuck Off");
+				break;
 			}
 		}
 	}

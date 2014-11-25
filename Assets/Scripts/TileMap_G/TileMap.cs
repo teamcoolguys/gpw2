@@ -10,7 +10,9 @@ public class TileMap : MonoBehaviour {
 	public int size_x = 100;
 	public int size_z = 50;
 	public float tileSize = 1.0f;
+	public string fileName = "test.txt";
 	public DTileMap MapInfo;
+	
 
 	public Texture2D terrainTiles;
 	public int tileResolution;
@@ -18,7 +20,7 @@ public class TileMap : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		MapInfo = new DTileMap(size_x, size_z);
+		MapInfo = new DTileMap(size_x, size_z, fileName);
 		BuildMesh();
 
 	}
