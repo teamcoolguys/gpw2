@@ -165,7 +165,7 @@
      <None Include="Assets\Art\places.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />
  <Reference Include="Photon3Unity3D">
- <HintPath>H:/Gpw2/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>D:/DylanGPW/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
