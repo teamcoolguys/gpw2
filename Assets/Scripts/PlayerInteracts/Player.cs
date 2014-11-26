@@ -11,9 +11,12 @@ using System.Collections;
 [RequireComponent(typeof(TileMapMouse))]
 public class Player : MonoBehaviour
 {
-	TileMap _tileMap;
-	TileMapMouse mouse;
+	TileMap mTileMap;
+	TileMapMouse mMouse;
+	GameObject mTileMapObject;
 	//privates
+	private int mMouseX;
+	private int mMouseY;
 	private Hand Hand;
 	private Space currentSpace;
 	private TestMap mCurrentGrid;
@@ -35,13 +38,26 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		//map = GetComponent<TestMap>("FullMap");
+		mTileMapObject=GameObject.Find("CurrentTileMap");
+		mMouse = mTileMapObject.GetComponent<TileMapMouse> ();
+		mTileMap = mTileMapObject.GetComponent<TileMap>();
+		mMouseX = mMouse.mMouseHitX;
+		//fixed for negatvie Z values
+		mMouseY = -1*mMouse.mMouseHitY-1;
+		//fixed for negative Z values
 	}
 
 	void Update()
 	{
-		mouse = GetComponent<TileMapMouse> ();
-		_tileMap = GetComponent<TileMap>();
+		mMouse = mTileMapObject.GetComponent<TileMapMouse> ();
+		mTileMap = mTileMapObject.GetComponent<TileMap>();
+		//Debug.Log ("Tile: " + mMouse.mMouseHitX + ", " + mMouse.mMouseHitY);
+		mMouseX = mMouse.mMouseHitX;
+
+		//fixed for negatvie Z values
+		mMouseY = -1*mMouse.mMouseHitY-1;
+		//fixed for negatvie Z values
+
 		if (Input.GetKey ("escape")) 
 		{
 			Application.Quit ();
@@ -49,38 +65,13 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			if(_tileMap.MapInfo.GetTileAt(0,0))
+			Debug.Log ("Tile: " + mMouse.mMouseHitX + ", " + mMouse.mMouseHitY);
+			Debug.Log ("Tile: " + mMouseX + ", " + mMouseY);
+			Debug.Log (mTileMap.MapInfo.GetTileAt(mMouseX,mMouseY));
+			if(mTileMap.MapInfo.GetTileAt(mMouseX,mMouseY)==1)
 			{
-
-			}
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-
-			Space Select = gameObject.GetComponent<Space>();
-
-			if(Physics.Raycast (ray, out hit))
-			{
-				//
-				Debug.Log (hit.collider.name);
-				//
-				mCurrentGrid=GetComponent<TestMap>();
-
-				mCurrentSpot=int.Parse(hit.collider.name);
-				//currentSpace=mCurrentGrid.mGroundFloor[mCurrentSpot];
-				//if (currentSpace.mSetSpace==Space.OccupyType.Wall)
-				//{
-				//
-				//}
-				//else
-				{
-					Vector3 Picked = hit.collider.transform.position;
-					Move(Picked);
-				}				//if(gameObject.collider == Space)
-
-				// Move(Picked)
-				//
-				//Debug.Log (Picked);
-				//
+				Debug.Log ("Does it hit");
+				Move(mMouse.mMousePosition);
 			}
 		}
 	}
