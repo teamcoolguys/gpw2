@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 		mTileMap = mTileMapObject.GetComponent<TileMap>();
 		mMouseX = mMouse.mMouseHitX;
 		//fixed for negatvie Z values
-		mMouseY = -1*mMouse.mMouseHitY-1;
+		mMouseY = mMouse.mMouseHitY;
 		//fixed for negative Z values
 	}
 
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 		mMouseX = mMouse.mMouseHitX;
 
 		//fixed for negatvie Z values
-		mMouseY = -1*mMouse.mMouseHitY-1;
+		mMouseY = mMouse.mMouseHitY;
 		//fixed for negatvie Z values
 
 		if (Input.GetKey ("escape")) 
