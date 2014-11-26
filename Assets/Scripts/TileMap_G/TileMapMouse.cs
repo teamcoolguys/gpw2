@@ -32,7 +32,7 @@ public class TileMapMouse : MonoBehaviour {
 			selectionCube.renderer.enabled = true;
 			int x = Mathf.FloorToInt( hitInfo.point.x / _tileMap.tileSize);
 			int z = Mathf.FloorToInt( hitInfo.point.z / _tileMap.tileSize);
-			//Debug.Log ("Tile: " + x + ", " + z);
+			Debug.Log ("Tile: " + x + ", " + z);
 			
 			currentTileCoord.x = x;
 			currentTileCoord.z = z;

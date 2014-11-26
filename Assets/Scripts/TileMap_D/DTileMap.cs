@@ -82,5 +82,9 @@ public class DTileMap {
 		map_data[(y*size_x)+x]=0;
 		return;
 	}
-
+	public float GetTilePosition(int x, int y)
+	{
+		float position = 0.0f;
+		return position;
+	}
 }

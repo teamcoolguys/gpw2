@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
 	private int mMouseX;
 	private int mMouseY;
 	private Hand Hand;
-	private Space currentSpace;
-	private TestMap mCurrentGrid;
+	//private Space currentSpace;
+	//private TestMap mCurrentGrid;
 	//private TestMap map;
 	 
 			//Jack//
@@ -90,13 +90,13 @@ public class Player : MonoBehaviour
 		gameObject.transform.position = pos + new Vector3(0.0f, 1.0f, 0.0f);
 	}
 
-	public void SetCurrentSpace(Space nextSpace)
-	{
-		currentSpace = nextSpace;
-	}
-
-	public Transform FindCurrentSpace()
-	{
-		return currentSpace.transform;
-	}
+	//public void SetCurrentSpace(Space nextSpace)
+	//{
+	//	currentSpace = nextSpace;
+	//}
+	//
+	//public Transform FindCurrentSpace()
+	//{
+	//	return currentSpace.transform;
+	//}
 }
