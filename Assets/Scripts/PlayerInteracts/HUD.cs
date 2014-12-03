@@ -5,10 +5,13 @@ using System.Collections.Generic;
 public class HUD : MonoBehaviour 
 {
 	public List<GameObject> deck = new List<GameObject>();
-
+	public double uoff = 0;
+	private List<GameObject> discard = new List<GameObject>();
 	private List<GameObject> cards = new List<GameObject>();
 	private List<GameObject> hand = new List<GameObject>();
 	private int cardsDealt = 0;
+	private int cardsheld = 0;
+	private bool[] cs = new bool[3];
 	private bool showR = false;
 
 
@@ -19,10 +22,27 @@ public class HUD : MonoBehaviour
 		{
 			Destroy(hand[i]);	
 		}
+		for (int i = 0; i < discard.Count; i++) 
+		{
+			Destroy(discard[i]);
+		}
+		discard.Clear ();
 		hand.Clear ();
 		cards.Clear ();
 		cards.AddRange (deck);
 		showR = false;
+		cardsheld = 0;
+		cardsDealt = 0;
+	}
+
+	void Playcard(GameObject cardd)
+	{
+		GameObject al;
+		al = cardd.transform.parent.gameObject;
+		discard.Add (al);
+		hand.Remove (al);
+		Destroy (al);
+		//do card stuff
 	}
 
 	GameObject DealCard()
@@ -36,11 +56,7 @@ public class HUD : MonoBehaviour
 		int card = Random.Range (0, cards.Count - 1);
 		GameObject go = GameObject.Instantiate (cards [card]) as GameObject;
 		cards.RemoveAt (card);
-
-		if (cards.Count == 17) 
-		{
-			showR = true;
-		}
+		cardsheld++;
 		return go;
 	}
 	// Use this for initialization
@@ -52,13 +68,21 @@ public class HUD : MonoBehaviour
 	void Gameover()
 	{
 		cardsDealt = 0;
-		for (int v = 0; v < hand.Count; v++) 
+		for (int i = 0; i < hand.Count; i++) 
 		{
-			Destroy(hand[v]);	
+			Destroy(hand[i]);	
 		}
+		for (int i = 0; i < discard.Count; i++) 
+		{
+			Destroy(discard[i]);
+		}
+		discard.Clear ();
 		hand.Clear ();
 		cards.Clear ();
 		cards.AddRange (deck);
+		showR = false;
+		cardsheld = 0;
+		cardsDealt = 0;
 	}
 
 	void OnGUI()
@@ -93,11 +117,7 @@ public class HUD : MonoBehaviour
 			showR = true;
 			return;
 		}
-		int offset = 0;
-		for (int i= 0; i < cardsDealt; i++) 
-		{
-			offset = offset + 2;
-		}
+		float offset = 0;
 		GameObject hudd = GameObject.FindGameObjectWithTag("HUD");
 		newCard.transform.position = hudd.transform.position;
 		newCard.transform.rotation = hudd.transform.rotation;
@@ -105,4 +125,135 @@ public class HUD : MonoBehaviour
 		hand.Add (newCard);
 		cardsDealt++;
 	}
+
+	void Rearrangehand()
+	{
+		GameObject hudd = GameObject.FindGameObjectWithTag("HUD");
+		float offset = (float)-.5;
+		offset = offset + (float)uoff;
+		if (cardsheld == 1)
+		{
+			offset = offset + 2;
+			hand[0].transform.position = Camera.main.transform.position + Camera.main.transform.forward * 6;
+			hand[0].transform.position = new Vector3(hand[0].transform.position.x, hand[0].transform.position.y - 5, hand[0].transform.position.z); 
+			hand[0].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+		}
+		if (cardsheld == 2)
+		{
+			offset = offset + (float)1.5;
+			hand[0].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[0].transform.position = hand[0].transform.position + Camera.main.transform.right * (float)-.7;
+			hand[0].transform.position = new Vector3(hand[0].transform.position.x, hand[0].transform.position.y - 5, hand[0].transform.position.z);
+			hand[0].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[1].transform.position = Camera.main.transform.position + Camera.main.transform.forward * 6;
+			hand[1].transform.position = hand[1].transform.position + Camera.main.transform.right * (float).7;
+			hand[1].transform.position = new Vector3(hand[1].transform.position.x, hand[1].transform.position.y - 5, hand[1].transform.position.z);
+			hand[1].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+		}
+		if (cardsheld == 3)
+		{
+			offset = offset + 1;
+			hand[0].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[0].transform.position = hand[0].transform.position + Camera.main.transform.right * (float)-1.4;
+			hand[0].transform.position = new Vector3(hand[0].transform.position.x , hand[0].transform.position.y- 5, hand[0].transform.position.z );
+			hand[0].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+
+			hand[1].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+
+			hand[1].transform.position = new Vector3(hand[1].transform.position.x , hand[1].transform.position.y- 5, hand[1].transform.position.z );
+			hand[1].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[2].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[2].transform.position = hand[2].transform.position + Camera.main.transform.right * (float)1.4;
+			hand[2].transform.position = new Vector3(hand[2].transform.position.x , hand[2].transform.position.y- 5, hand[2].transform.position.z );
+			hand[2].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+		}
+		if (cardsheld == 4)
+		{
+			offset = offset + (float).5;
+			hand[0].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[0].transform.position = hand[0].transform.position + Camera.main.transform.right * (float)-2.1;
+			hand[0].transform.position = new Vector3(hand[0].transform.position.x , hand[0].transform.position.y - 5, hand[0].transform.position.z );
+			hand[0].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[1].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[1].transform.position = hand[1].transform.position + Camera.main.transform.right * (float)-.7;
+			hand[1].transform.position = new Vector3(hand[1].transform.position.x , hand[1].transform.position.y - 5, hand[1].transform.position.z );
+			hand[1].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[2].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[2].transform.position = hand[2].transform.position + Camera.main.transform.right * (float).7;
+			hand[2].transform.position = new Vector3(hand[2].transform.position.x , hand[2].transform.position.y - 5, hand[2].transform.position.z );
+			hand[2].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[3].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[3].transform.position = hand[3].transform.position + Camera.main.transform.right * (float)2.1;
+			hand[3].transform.position = new Vector3(hand[3].transform.position.x , hand[3].transform.position.y - 5, hand[3].transform.position.z );
+			hand[3].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+		}
+		if (cardsheld == 5)
+		{
+			offset = offset + (float).5;
+			hand[0].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[0].transform.position = hand[0].transform.position + Camera.main.transform.right * (float)-2.8;
+			hand[0].transform.position = new Vector3(hand[0].transform.position.x , hand[0].transform.position.y - 5, hand[0].transform.position.z );
+			hand[0].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[1].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[1].transform.position = hand[1].transform.position + Camera.main.transform.right * (float)-1.4;
+			hand[1].transform.position = new Vector3(hand[1].transform.position.x , hand[1].transform.position.y - 5, hand[1].transform.position.z );
+			hand[1].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[2].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[2].transform.position = new Vector3(hand[2].transform.position.x , hand[2].transform.position.y - 5, hand[2].transform.position.z );
+			hand[2].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[3].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[3].transform.position = hand[3].transform.position + Camera.main.transform.right * (float)1.4;
+			hand[3].transform.position = new Vector3(hand[3].transform.position.x , hand[3].transform.position.y - 5, hand[3].transform.position.z );
+			hand[3].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+			offset = offset + 1;
+			hand[4].transform.position = Camera.main.transform.position + Camera.main.transform.forward  * 6;
+			hand[4].transform.position = hand[4].transform.position + Camera.main.transform.right * (float)2.8;
+			hand[4].transform.position = new Vector3(hand[4].transform.position.x , hand[4].transform.position.y - 5, hand[4].transform.position.z );
+			hand[4].transform.rotation = Quaternion.LookRotation(-Camera.main.transform.forward, Camera.main.transform.up);
+		}
+
+
+	}
+
+	void Update()
+	{
+		Rearrangehand ();
+		if (cardsheld == 5 || cards.Count == 0) 
+		{
+			showR = true;
+		}
+		else
+			showR = false;
+		if(Input.GetMouseButtonDown(0))
+		{
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit))			{ 
+				Debug.Log("clicked it");
+				
+				if(hit.collider.CompareTag("Card"))
+				{
+					Debug.Log("hit it");
+					Playcard(hit.collider.gameObject);
+					cardsheld= cardsheld - 1;
+					cardsDealt = cardsDealt - 1;
+				}
+			} 
+		}
+		
+	}
+
+
+
 }
+
+
