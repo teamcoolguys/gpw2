@@ -11,11 +11,14 @@ public class CameraController : MonoBehaviour {
 	private float RotationAmmount;
 	//publics
 	public float zoomSpeed = 20f;
+	[Range(0.0f,20.0f)]
 	public float minZoomFOV = 10f;
+	[Range(100.0f,1000.0f)]
 	public float maxZoomFOV = 100f;
 	public float Rotation = 30; // degrees per second'
 	[Range(0.0f,0.1f)]
 	public float RotationSpeed;
+	[Range(0.0f,5.0f)]
 	public float panSpeed = 4.0f;
 	public float Speed = 5.0f;
 

@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{FDA8790C-F2A1-BE72-ED5F-9C116BFA5528}") = "Development-Dylan", "Assembly-CSharp-firstpass.csproj", "{D1A9F35E-6667-FACE-F37C-F3B4AA2D0C73}"
+EndProject
 Project("{FDA8790C-F2A1-BE72-ED5F-9C116BFA5528}") = "Development-Dylan", "Assembly-CSharp.csproj", "{C99B28F6-0B60-8595-5109-31DA29058DC6}"
 EndProject
 Project("{FDA8790C-F2A1-BE72-ED5F-9C116BFA5528}") = "Development-Dylan", "Assembly-CSharp-Editor.csproj", "{81731706-05CC-9C7E-7A66-851B217CBF2F}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1A9F35E-6667-FACE-F37C-F3B4AA2D0C73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A9F35E-6667-FACE-F37C-F3B4AA2D0C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A9F35E-6667-FACE-F37C-F3B4AA2D0C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A9F35E-6667-FACE-F37C-F3B4AA2D0C73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C99B28F6-0B60-8595-5109-31DA29058DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C99B28F6-0B60-8595-5109-31DA29058DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C99B28F6-0B60-8595-5109-31DA29058DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																															GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
