@@ -131,8 +131,11 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-     <Compile Include="Assets\Scripts\AI\BaseGuard.cs" />
-     <Compile Include="Assets\Scripts\AI\BaseTarget.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\Graph.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\GraphSearch.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\Node.cs" />
+     <Compile Include="Assets\Scripts\AI\Targets and Guard\BaseGuard.cs" />
+     <Compile Include="Assets\Scripts\AI\Targets and Guard\BaseTarget.cs" />
      <Compile Include="Assets\Scripts\BackEnd\CameraController.cs" />
      <Compile Include="Assets\Scripts\BackEnd\GameManager.cs" />
      <Compile Include="Assets\Scripts\BackEnd\GameMenu.cs" />
@@ -165,7 +168,7 @@
      <None Include="Assets\Art\places.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />
  <Reference Include="Photon3Unity3D">
- <HintPath>D:/DylanGPW/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>C:/Users/312287/Desktop/gpw2.git/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

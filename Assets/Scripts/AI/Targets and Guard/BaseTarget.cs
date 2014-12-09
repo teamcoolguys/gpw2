@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿//Jack Ng
+//Nov 5th, 2014
+
+
+using UnityEngine;
 using System.Collections;
 
 public class BaseTarget : MonoBehaviour {
