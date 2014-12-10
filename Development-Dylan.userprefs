@@ -1,14 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerInteracts\HUD.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\PathFinding\GraphSearch.cs">
     <Files>
-      <File FileName="Assets\Scripts\TileMap_G\TileMap.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TileMap_D\DTileMap.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapScripts\Space.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TileMap_G\TileMouseOver.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TileMap_G\TileMapMouse.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerInteracts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerInteracts\HUD.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI\PathFinding\Node.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI\Targets and Guard\BaseTarget.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI\PathFinding\Graph.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\AI\PathFinding\GraphSearch.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
