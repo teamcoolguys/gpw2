@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\FMODEventEmitterInspector.cs" />
+     <Compile Include="Assets\Editor\FMODEventInspector.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoHub\Editor\PunStartup.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\PUNGuide_M2H\zSharedAssets\Editor\FixBuildSettings.cs" />
      <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" />
@@ -69,16 +71,18 @@
      <None Include="Assets\Art\places.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />
  <Reference Include="Newtonsoft.Json">
- <HintPath>D:/DylanGPW/branches/Development-Dylan/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+ <HintPath>H:/Gpw/branches/Development-Dylan/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>D:/DylanGPW/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>H:/Gpw/branches/Development-Dylan/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D1A9F35E-6667-FACE-F37C-F3B4AA2D0C73}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{C99B28F6-0B60-8595-5109-31DA29058DC6}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
