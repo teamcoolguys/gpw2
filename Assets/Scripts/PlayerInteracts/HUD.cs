@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class HUD : MonoBehaviour 
 {
 	public List<GameObject> deck = new List<GameObject>();
+	public List<GUITexture> infamsprites = new List<GUITexture>();
 	public double uoff = 0;
 	private List<GameObject> discard = new List<GameObject>();
 	private List<GameObject> cards = new List<GameObject>();
@@ -13,7 +14,21 @@ public class HUD : MonoBehaviour
 	private int cardsheld = 0;
 	private bool[] cs = new bool[3];
 	private bool showR = false;
+	private GUITexture bar;
+	float maxinfamy = 8, infamy = 0, percent;
 
+
+	void Start ()
+	{
+
+		for (int i = 0; i < maxinfamy; i++)
+		{
+
+			GameObject go = GameObject.Instantiate(infamsprites[i]) as GameObject;
+
+		}
+		ResetDeck ();
+	}
 
 	void ResetDeck()
 	{
@@ -59,11 +74,6 @@ public class HUD : MonoBehaviour
 		cardsheld++;
 		return go;
 	}
-	// Use this for initialization
-	void Start () 
-	{
-		ResetDeck ();
-	}
 
 	void Gameover()
 	{
@@ -87,6 +97,13 @@ public class HUD : MonoBehaviour
 
 	void OnGUI()
 	{
+
+		//GameObject go = GameObject.Instantiate
+		if (GUI.Button(new Rect(40,40,30, 20), "INFAMY BOOOST"))
+		{
+			infamy = infamy+1;
+		}
+
 		if (!showR) 
 		{
 			if (GUI.Button(new Rect(10,10,100, 20), "Deal"))
@@ -224,8 +241,32 @@ public class HUD : MonoBehaviour
 
 	}
 
+	void Rearrangeinfamy()
+	{
+		int w =24, h =24, x = -128, y = -80;
+		for (int i=0; i < maxinfamy; i++)
+		{
+			transform.position = Vector3.zero;
+			transform.localScale = Vector3.zero;
+			infamsprites[i].pixelInset = new Rect(x,y,w,h);
+				x = x + 24;
+		}
+		
+		
+	}
+
 	void Update()
 	{
+		Rearrangeinfamy ();
+		bar = GameObject.Find("frontbr").guiTexture;
+		if (infamy == 0)
+			percent = 0;
+		else if (infamy == maxinfamy)
+			percent = 250;
+		else
+			percent = 250 * (infamy/maxinfamy);
+		bar.pixelInset = new Rect (-125, 253, percent, 23);
+
 		Rearrangehand ();
 		if (cardsheld == 5 || cards.Count == 0) 
 		{
